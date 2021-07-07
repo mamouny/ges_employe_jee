@@ -9,7 +9,7 @@ public class Employe {
     @Id
     private int idemploye;
 
-    @Column(name = "departement_id")
+    @Column(name = "depatement_id")
     private int departement_id;
 
     @Column(name = "nomEmp")

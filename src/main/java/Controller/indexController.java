@@ -17,8 +17,9 @@ public class indexController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Employe> listEmployee = employeServices.getAllEmployees();
-        req.setAttribute("listEmployee", listEmployee);
+        employeServices sn = new employeServices();
+        List<Employe> listesEmp = sn.getAllEmployees();
+        req.setAttribute("listesEmp", listesEmp);
         req.getRequestDispatcher("views/index.jsp").forward(req,resp);
     }
 

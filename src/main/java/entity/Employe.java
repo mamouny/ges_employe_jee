@@ -19,7 +19,7 @@ public class Employe {
     private String prenomEmp;
 
     @Column(name = "dateN")
-    private Date dateN;
+    private String dateN;
 
     @Column(name = "nationnalite")
     private String nationnalite;
@@ -32,7 +32,26 @@ public class Employe {
     @Column(name = "ville")
     private String ville;
 
+    @Column(name = "salaire")
+    private Double salaire;
+
     public Employe() {
+    }
+
+    public String getDateN() {
+        return dateN;
+    }
+
+    public void setDateN(String dateN) {
+        this.dateN = dateN;
+    }
+
+    public Double getSalaire() {
+        return salaire;
+    }
+
+    public void setSalaire(Double salaire) {
+        this.salaire = salaire;
     }
 
     public int getIdemploye() {
@@ -51,9 +70,6 @@ public class Employe {
         return prenomEmp;
     }
 
-    public Date getDateN() {
-        return dateN;
-    }
 
     public String getNationnalite() {
         return nationnalite;
@@ -87,9 +103,6 @@ public class Employe {
         this.prenomEmp = prenomEmp;
     }
 
-    public void setDateN(Date dateN) {
-        this.dateN = dateN;
-    }
 
     public void setNationnalite(String nationnalite) {
         this.nationnalite = nationnalite;

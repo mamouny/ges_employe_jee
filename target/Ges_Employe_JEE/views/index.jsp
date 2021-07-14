@@ -25,7 +25,8 @@
                 <th>PRENOM</th>
                 <th>Date de naissance</th>
                 <th>Nationnalite </th>
-                <th>Situation Familiale </th>
+                <th>Ville </th>
+                <th>Salaire </th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -39,7 +40,8 @@
                             <td id="prenomEmp" ><%= e.getPrenomEmp() %></td>
                             <td id="dateN" ><%= e.getDateN() %></td>
                             <td id="nationnalite" ><%= e.getNationnalite() %></td>
-                            <td id="situal_f" ><%= e.getSituat_F() %></td>
+                            <td id="ville" ><%= e.getVille() %></td>
+                            <td id="salaire" ><%= e.getSalaire() %></td>
                             <td>
                                 <button class="btn btn-dark" >visualiser</button>
                                 <button class="btn btn-danger">supprimer</button>
@@ -50,8 +52,6 @@
             </tbody>
         </table>
     </div>
-
-
     <!-- Modal Add-->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -64,12 +64,8 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <label>ID</label>
-                                <input type="number" id="idemployee" name="idemployee" placeholder="Entrer votre numero" class="form-control"/>
-                            </div>
-                            <div class="form-group col-md-12">
                                 <label> Nom </label>
-                                <input type="text"   name="cout" placeholder="Entrer votre nom" class="form-control"/>
+                                <input type="text"   name="nom" placeholder="Entrer votre nom" class="form-control"/>
                             </div>
                             <div class="form-group col-md-12">
                                 <label>Prénom</label>
@@ -82,6 +78,14 @@
                             <div class="form-group col-md-12">
                                 <label>Lieu de naissance</label>
                                 <input type="text" placeholder="Entrer votre lieu naissance"  name="lieuN"  class="form-control"/>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label>Nationnalite</label>
+                                <input type="text" placeholder="Entrer votre nationnalite"  name="nationnalite"  class="form-control"/>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label>Salaire</label>
+                                <input type="number" placeholder="Entrer votre salaire"  name="salaire"  class="form-control"/>
                             </div>
                         </div>
                     </div>

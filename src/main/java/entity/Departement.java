@@ -1,17 +1,27 @@
 package entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "departement")
 public class Departement {
 
     @Id
-    @Column(name = "idDepatement")
+    @Column(name = "idDepartement")
     private int departement_id;
+
+    @OneToMany
+    private List<Employe> employes;
+
+    public List<Employe> getEmployes() {
+        return employes;
+    }
+
+    public void setEmployes(List<Employe> employes) {
+        this.employes = employes;
+    }
 
     @Column(name = "nomDepartement")
     private String nomDepartement;

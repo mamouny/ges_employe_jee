@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <%@ page import="java.util.List" %>
 <%@ page import="entity.Employe" %>
+<%@ page import="entity.Departement" %>
 <html>
 <head>
     <title>Accueil</title>
@@ -86,6 +87,17 @@
                             <div class="form-group col-md-12">
                                 <label>Salaire</label>
                                 <input type="number" placeholder="Entrer votre salaire"  name="salaire"  class="form-control"/>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label>Departement</label>
+                                <select class="form-control form-select " name="departement_id">
+                                    <% if (request.getAttribute("listesDep") != null) { %>
+                                    <% List<Departement> listesDep = (List) request.getAttribute("listesDep"); %>
+                                    <% for (Departement dep : listesDep) { %>
+                                        <option value="<%= dep.getDepartement_id() %>" selected><%= dep.getNomDepartement() %></option>
+                                    <% } %>
+                                    <% } %>
+                                </select>
                             </div>
                         </div>
                     </div>

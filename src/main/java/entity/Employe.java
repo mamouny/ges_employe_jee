@@ -1,6 +1,7 @@
 package entity;
 
 import javax.persistence.*;
+
 import java.util.Date;
 
 @Entity
@@ -9,8 +10,17 @@ public class Employe {
     @Id
     private int idemploye;
 
-    @Column(name = "depatement_id")
-    private int departement_id;
+    @ManyToOne
+    @JoinColumn(name="departement_id")
+    public Departement departement_id;
+
+    public Departement getDepartement_id() {
+        return departement_id;
+    }
+
+    public void setDepartement_id(Departement departement_id) {
+        this.departement_id = departement_id;
+    }
 
     @Column(name = "nomEmp")
     private String nomEmp;
@@ -58,9 +68,6 @@ public class Employe {
         return idemploye;
     }
 
-    public int getDepartement_id() {
-        return departement_id;
-    }
 
     public String getNomEmp() {
         return nomEmp;
@@ -89,10 +96,6 @@ public class Employe {
 
     public void setIdemploye(int idemploye) {
         this.idemploye = idemploye;
-    }
-
-    public void setDepartement_id(int departement_id) {
-        this.departement_id = departement_id;
     }
 
     public void setNomEmp(String nomEmp) {

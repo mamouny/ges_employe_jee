@@ -990,7 +990,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="291" parent="287" name="nomDepatement">
+    <column id="291" parent="287" name="nomDepartement">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
     </column>
@@ -1033,7 +1033,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Position>8</Position>
       <DataType>varchar(15)|0s</DataType>
     </column>
-    <column id="301" parent="288" name="depatement_id">
+    <column id="301" parent="288" name="departement_id">
       <Position>9</Position>
       <DataType>int|0s</DataType>
     </column>
@@ -1043,7 +1043,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <DefaultExpression>0</DefaultExpression>
     </column>
     <index id="303" parent="288" name="depatement_id_idx">
-      <ColNames>depatement_id</ColNames>
+      <ColNames>departement_id</ColNames>
       <Type>btree</Type>
     </index>
     <key id="304" parent="288" name="PRIMARY">
@@ -1052,7 +1052,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Primary>1</Primary>
     </key>
     <foreign-key id="305" parent="288" name="depatement_id">
-      <ColNames>depatement_id</ColNames>
+      <ColNames>departement_id</ColNames>
       <RefTableName>departement</RefTableName>
       <RefColNames>idDepartement</RefColNames>
     </foreign-key>

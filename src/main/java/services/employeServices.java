@@ -56,4 +56,12 @@ public class employeServices implements employeDao{
         return listEmployee;
     }
 
+    @Override
+    public List<Departement> getAllDep() {
+        String StrQuery = "SELECT d FROM Departement d";
+        Query tq = em.createQuery(StrQuery, Departement.class);
+        List<Departement>	listDep = tq.getResultList();
+        return listDep;
+    }
+
 }

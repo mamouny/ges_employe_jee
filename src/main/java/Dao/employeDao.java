@@ -10,5 +10,6 @@ public interface employeDao {
     public Employe update(Employe e);
     List<Employe> getAllEmployees();
     List<Departement> getAllDep();
+    public Employe getById(int id);
 
 }

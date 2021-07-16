@@ -1,22 +1,20 @@
 package services;
 
 import Dao.employeDao;
-//import entity.Employe;
 import entity.*;
-
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+
 
 public class employeServices implements employeDao{
+
     private static final String PERSISTENCE_UNIT_NAME = "default";
     private static EntityManagerFactory emf;
     private static EntityManager em;
     private static EntityManager emAdd;
     private static EntityManager emDel;
     private static EntityManager emUpd;
-
-
+    private static EntityManager emGet;
 
     public employeServices() {
         emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
@@ -24,8 +22,8 @@ public class employeServices implements employeDao{
         emAdd = emf.createEntityManager();
         emDel = emf.createEntityManager();
         emUpd = emf.createEntityManager();
+        emGet = emf.createEntityManager();
     }
-
 
     @Override
     public void save(Employe e) {
@@ -45,9 +43,20 @@ public class employeServices implements employeDao{
 
     @Override
     public Employe update(Employe e) {
-        return null;
+        emUpd.getTransaction().begin();
+        Employe employe = emUpd.find(Employe.class,e.getIdemploye());
+        employe.setNomEmp(e.getNomEmp());
+        employe.setPrenomEmp(e.getPrenomEmp());
+        employe.setDateN(e.getDateN());
+        employe.setNationnalite(e.getNationnalite());
+        employe.setSituat_F(e.getSituat_F());
+        employe.setSalaire(e.getSalaire());
+        employe.setVille(e.getVille());
+        employe.setNiveau(e.getNiveau());
+        employe.setDepartement_id(e.getDepartement_id());
+        emUpd.getTransaction().commit();
+        return employe;
     }
-
     @Override
     public List<Employe> getAllEmployees() {
         String StrQuery = "SELECT e FROM Employe e";
@@ -62,6 +71,13 @@ public class employeServices implements employeDao{
         Query tq = em.createQuery(StrQuery, Departement.class);
         List<Departement>	listDep = tq.getResultList();
         return listDep;
+    }
+
+    @Override
+    public Employe getById(int id) {
+        emGet.getTransaction().begin();
+        Employe employe = emGet.find(Employe.class,id);
+        return employe;
     }
 
 }

@@ -10,6 +10,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <script src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready( function () {
+            $('#myTable').DataTable();
+        } );
+    </script>
 </head>
 <body>
     <jsp:include page="../common/header.jsp" />
@@ -17,8 +25,8 @@
         <button class="btn btn-primary p-1 btnright m-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             Ajouter un employé
         </button>
-        <h1>Employees List</h1>
-        <table class="table table-bordered">
+        <h1>Liste des émployees</h1>
+        <table class="table table-bordered" id="myTable">
             <thead>
             <tr>
                 <th>ID</th>
@@ -44,8 +52,8 @@
                             <td id="ville" ><%= e.getVille() %></td>
                             <td id="salaire" ><%= e.getSalaire() %></td>
                             <td>
-                                <button class="btn btn-dark" >visualiser</button>
-                                <button class="btn btn-danger">supprimer</button>
+                                <a href="modEmp?idemploye=<%= e.getIdemploye() %>" class="btn btn-dark" >visualiser</a>
+                                <a href="supEmp?idemploye=<%= e.getIdemploye() %>" class="btn btn-danger">supprimer</a>
                             </td>
                         </tr>
                     <% } %>

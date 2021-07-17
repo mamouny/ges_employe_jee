@@ -6,7 +6,7 @@
             </a>
         </div>
         <div class="col-md-2  ">
-            <a class="navbar-brand " href="/">
+            <a class="navbar-brand " name="logout" href="logout">
                 <span class="glyphicon glyphicon-log-in text-white" style="color:#fff;"></span>
                 <span style="color:#fff;">DECONNEXION</span>
             </a>

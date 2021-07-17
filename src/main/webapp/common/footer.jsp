@@ -1,16 +1,18 @@
+<footer class="bg-secondary footer " style="width: 100%;margin-right: 0px;height: 5%;background:#4D516D;border-radius:2px;padding-top:11px">
+    <div class="justify-content-center  text-center">
+        <div class="text-white text-center ">
+            <span>ISCAE &copy; 2020-2021</span>
+        </div>
+    </div>
+</footer>
+
 <style>
     .footer {
         position: fixed;
+        left: 0;
         bottom: 0;
-        width:100%;
-        height: 40px;
-        background-color: #4D516D;
+        width: 100%;
+        color: white;
+        text-align: center;
     }
-
 </style>
-
-<footer class="footer font-small black">
-    <div class="footer-copyright text-center py-2" style="color: white">© 2021 Copyright GES_EMP
-    </div>
-</footer>
-<!-- Footer -->

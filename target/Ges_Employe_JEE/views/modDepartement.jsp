@@ -1,10 +1,15 @@
-<%@ page language="java" contentType="text/html; ISO-8859-1" pageEncoding="ISO-8859-1" %>
-<%@ page import="java.util.List" %>
-<%@ page import="entity.Employe" %>
 <%@ page import="entity.Departement" %>
+<%@ page import="java.util.List" %><%--
+  Created by IntelliJ IDEA.
+  User: HP
+  Date: 16/07/2021
+  Time: 10:11
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Accueil</title>
+    <title>Editer Departement</title>
     <meta charset="utf-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -20,26 +25,39 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         $(document).ready( function () {
             $('#myTable').DataTable();
         } );
     </script>
 </head>
-<body style="background:url('https://www.abistart.com/wp-content/uploads/2020/05/abistart-agence-de%CC%81veloppement-commercial-trouver-de-nouveaux-clients-prospection-approche-commerciale-de%CC%81velopper-son-business-1024x700.jpg');">
+<body>
     <jsp:include page="../common/header.jsp" />
     <jsp:include page="../common/sidebar.jsp" />
     <div id="wrapper" style="margin-top:25px">
         <div class="container">
-            <div class="box mb-5 w-100">
-                <h2 class="text-secondary text-center bg-dark">Accueil</h2>
+            <div class=" text-center">
+                <h4>Modifier un departement</h4>
+            </div>
+            <div class=" w-50 m-auto ">
+                <%Departement departement = (Departement) request.getAttribute("dep"); %>
+                <form action="modDep" method="post">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <label>Nom Departement</label>
+                                <input type="text" id="nomDepartement" value="<%= departement.getNomDepartement() %>" name="nomDepartement" placeholder="Le nom du departement " class="form-control"/>
+                                <input type="hidden" name="idDepartement" value="<%= departement.getDepartement_id() %>"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pull-center" align="center">
+                        <input type="submit" name="submit" value="Modifier" class="btn btn-primary">
+                        <a href="departement" class="btn btn-success text-center">Annuler</a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-
-    <jsp:include page="../common/footer.jsp" />
 </body>
 </html>

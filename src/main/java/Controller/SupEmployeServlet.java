@@ -17,7 +17,7 @@ public class SupEmployeServlet extends HttpServlet {
         emp.delete(e.getIdemploye());
         List<Employe> listesEmp = emp.getAllEmployees();
         req.setAttribute("listesEmp", listesEmp);
-        req.getRequestDispatcher("views/index.jsp").forward(req,resp);
+        req.getRequestDispatcher("views/listeEmployees.jsp").forward(req,resp);
     }
 
     @Override

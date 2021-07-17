@@ -1,18 +1,15 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">GES_EMPLOYEE</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="acceuil">Employee</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="departement"">Departement</a>
-                </li>
-            </ul>
+    <div class="col-md-12 ">
+        <div class="container-build col-md-10">
+            <a href="acceuil" class="font-weight-bold navbar-brand">
+                <span style="color:#fff;">GESTION EMPLOYEE</span>
+            </a>
+        </div>
+        <div class="col-md-2  ">
+            <a class="navbar-brand " href="/">
+                <span class="glyphicon glyphicon-log-in text-white" style="color:#fff;"></span>
+                <span style="color:#fff;">DECONNEXION</span>
+            </a>
         </div>
     </div>
 </nav>

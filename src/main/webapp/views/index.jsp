@@ -13,111 +13,33 @@
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
     <script src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         $(document).ready( function () {
             $('#myTable').DataTable();
         } );
     </script>
 </head>
-<body>
+<body style="background:url('https://www.abistart.com/wp-content/uploads/2020/05/abistart-agence-de%CC%81veloppement-commercial-trouver-de-nouveaux-clients-prospection-approche-commerciale-de%CC%81velopper-son-business-1024x700.jpg');">
     <jsp:include page="../common/header.jsp" />
-    <div class="container">
-        <button class="btn btn-primary p-1 btnright m-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Ajouter un employé
-        </button>
-        <h1>Liste des émployees</h1>
-        <table class="table table-bordered" id="myTable">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>NOM</th>
-                <th>PRENOM</th>
-                <th>Date de naissance</th>
-                <th>Nationnalite </th>
-                <th>Ville </th>
-                <th>Salaire </th>
-                <th>Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-                <% if (request.getAttribute("listesEmp") != null) { %>
-                    <% List<Employe> listesEmp = (List) request.getAttribute("listesEmp"); %>
-                    <% for (Employe e : listesEmp) { %>
-                        <tr class="text-center">
-                            <td id="idemploye"><%= e.getIdemploye() %></td>
-                            <td id="nomEmp"><%= e.getNomEmp() %></td>
-                            <td id="prenomEmp" ><%= e.getPrenomEmp() %></td>
-                            <td id="dateN" ><%= e.getDateN() %></td>
-                            <td id="nationnalite" ><%= e.getNationnalite() %></td>
-                            <td id="ville" ><%= e.getVille() %></td>
-                            <td id="salaire" ><%= e.getSalaire() %></td>
-                            <td>
-                                <a href="modEmp?idemploye=<%= e.getIdemploye() %>" class="btn btn-dark" >visualiser</a>
-                                <a href="supEmp?idemploye=<%= e.getIdemploye() %>" class="btn btn-danger">supprimer</a>
-                            </td>
-                        </tr>
-                    <% } %>
-                <% } %>
-            </tbody>
-        </table>
-    </div>
-    <!-- Modal Add-->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form action="" method="post" >
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Ajouter un employee</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="form-group col-md-12">
-                                <label> Nom </label>
-                                <input type="text"   name="nom" placeholder="Entrer votre nom" class="form-control"/>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label>Prénom</label>
-                                <input type="text"  name="prenom" placeholder="Entrer votre prenom" class="form-control"/>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label>Date de naissance</label>
-                                <input type="date"  name="dateN"  class="form-control"/>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label>Lieu de naissance</label>
-                                <input type="text" placeholder="Entrer votre lieu naissance"  name="lieuN"  class="form-control"/>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label>Nationnalite</label>
-                                <input type="text" placeholder="Entrer votre nationnalite"  name="nationnalite"  class="form-control"/>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label>Salaire</label>
-                                <input type="number" placeholder="Entrer votre salaire"  name="salaire"  class="form-control"/>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label>Departement</label>
-                                <select class="form-control form-select " name="departement_id">
-                                    <% if (request.getAttribute("listesDep") != null) { %>
-                                    <% List<Departement> listesDep = (List) request.getAttribute("listesDep"); %>
-                                    <% for (Departement dep : listesDep) { %>
-                                        <option value="<%= dep.getDepartement_id() %>" selected><%= dep.getNomDepartement() %></option>
-                                    <% } %>
-                                    <% } %>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary float-right">Sauvegarder</button>
-                    </div>
-                </form>
-
+    <jsp:include page="../common/sidebar.jsp" />
+    <div id="wrapper" style="margin-top:25px">
+        <div class="container">
+            <div class="box mb-5 w-100">
+                <h2 class="text-secondary text-center bg-dark">Accueil</h2>
             </div>
         </div>
     </div>
+
     <jsp:include page="../common/footer.jsp" />
 </body>
 </html>
